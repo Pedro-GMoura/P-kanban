@@ -1,157 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
-
+    
     <title>Kanban</title>
 </head>
 <body>
+
     <main class="kanban">
+        <div class="modal-overlay">
+            <div class="modal">
+                <h3>Novo Card</h3>
+                <form id="cardForm">
+                    <div class="form-group">
+                        <label for="cardTitle">Título:</label>
+                        <input type="text" id="cardTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardPriority">Prioridade:</label>
+                        <select id="cardPriority">
+                            <option value="high">Alta</option>
+                            <option value="medium">Média</option>
+                            <option value="low">Baixa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardDescription">Descrição:</label>
+                        <textarea id="cardDescription" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <span>Periodo de teste: </span><input type="date"> <span>até </span> <input type="date">
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="cancel-btn">Cancelar</button>
+                        <button type="submit">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 <!-- =================================================================== -->
         <div class="kanban-column">
-            <div class="kanban-tittle">
+            <div class="kanban-title">
                 <h2>Para criar</h2>
                 <button class="add-card">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
-            <div class="kanban-card">
-                <div class="badge high">
-                    <span>Alta prioridade</span>
-                </div>
-                <p class="card-title">Cliente Modelo</p>
-                <div class="card-infos">
-                    <div class="card-icons">
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            0
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-paperclip"></i>
-                            0
-                        </p>
+            <div class="kanban-cards" id="column-1"> 
+                <div class="kanban-card" draggable="true">
+                    <div class="badge high">
+                        <span>Alta prioridade</span>
                     </div>
-
-                </div>
-            </div>
-        </div>
-<!-- =================================================================== -->
-        <div class="kanban-column">
-            <div class="kanban-tittle">
-                <h2>Aguard. Treiname</h2>
-                <button class="add-card">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div class="kanban-card">
-                <div class="badge high">
-                    <span>Alta prioridade</span>
-                </div>
-                <p class="card-title">Cliente Modelo</p>
-                <div class="card-infos">
-                    <div class="card-icons">
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            0
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-paperclip"></i>
-                            0
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-<!-- =================================================================== -->
-        <div class="kanban-column">
-            <div class="kanban-tittle">
-                <h2>Criada/Prospec</h2>
-                <button class="add-card">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div class="kanban-card">
-                <div class="badge high">
-                    <span>Alta prioridade</span>
-                </div>
-                <p class="card-title">Cliente Modelo</p>
-                <div class="card-infos">
-                    <div class="card-icons">
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            0
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-paperclip"></i>
-                            0
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-<!-- =================================================================== -->
-        <div class="kanban-column">
-            <div class="kanban-tittle">
-                <h2>Cliente CHAT</h2>
-                <button class="add-card">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div class="kanban-card">
-                <div class="badge high">
-                    <span>Alta prioridade</span>
-                </div>
-                <p class="card-title">Cliente Modelo</p>
-                <div class="card-infos">
-                    <div class="card-icons">
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            0
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-paperclip"></i>
-                            0
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-<!-- =================================================================== -->
-        <div class="kanban-column">
-            <div class="kanban-tittle">
-                <h2>Excluídas</h2>
-                <button class="add-card">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div class="kanban-card">
-                <div class="badge high">
-                    <span>Alta prioridade</span>
-                </div>
-                <p class="card-title">Cliente Modelo</p>
-                <div class="card-infos">
-                    <div class="card-icons">
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            0
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-paperclip"></i>
-                            0
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </main>
+                    <p class="card-title">Cliente Modelo</p>
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                0
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                0
+                            </p>
+                        </div>
     
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- =================================================================== -->
+<div class="kanban-column">
+    <div class="kanban-title">
+        <h2>Aguard.Treiname</h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="kanban-cards" id="column-2"> 
+        <div class="kanban-card" draggable="true">
+            <div class="badge high">
+                <span>Alta prioridade</span>
+            </div>
+            <p class="card-title">Cliente Modelo</p>
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        0
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        0
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =================================================================== -->
+<div class="kanban-column">
+    <div class="kanban-title">
+        <h2>Criada/Prospec</h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="kanban-cards" id="column-3"> 
+    <div class="kanban-card" draggable="true">
+            <div class="badge high">
+                <span>Alta prioridade</span>
+            </div>
+            <p class="card-title">Cliente Modelo</p>
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        0
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        0
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =================================================================== -->
+<div class="kanban-column">
+    <div class="kanban-title">
+        <h2>Cliente CHAT</h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="kanban-cards" id="column-4"> 
+        <div class="kanban-card" draggable="true">
+            <div class="badge high">
+                <span>Alta prioridade</span>
+            </div>
+            <p class="card-title">Cliente Modelo</p>
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        0
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        0
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =================================================================== -->
+<div class="kanban-column">
+    <div class="kanban-title">
+        <h2>Excluidas</h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="kanban-cards" id="column-5"> 
+        <div class="kanban-card" draggable="true">
+            <div class="badge high">
+                <span>Alta prioridade</span>
+            </div>
+            <p class="card-title">Cliente Modelo</p>
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        0
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        0
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="add-column">
+    <div>
+        <h2>Adicionar lista</h2> <i class="fa-solid fa-plus"></i>
+    </div>
+</div>
+
+</main>
+
+<script src="src/javascript/script.js"></script>
 </body>
 </html>
